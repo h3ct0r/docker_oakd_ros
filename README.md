@@ -46,6 +46,7 @@ sudo docker run hello-world
 Build the container (this could take some minutes):
 
 ```
+git clone https://github.com/h3ct0r/docker_oakd_ros
 cd docker_oakd_ros/
 docker build . -t oakd_ros
 ```
