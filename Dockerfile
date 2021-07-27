@@ -2,7 +2,7 @@ FROM ros:noetic-ros-base-focal
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update; exit 0
-RUN apt-get install wget
+RUN apt-get install -y wget
 RUN wget -qO - https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
 COPY scripts/install_dependencies.sh /
@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y python3-catkin-tools python3-catkin-lin
 RUN pip3 install osrf-pycommon
 RUN rosdep update
 RUN apt-get install python3-vcstool
-RUN wget -qO- https://raw.githubusercontent.com/luxonis/depthai-ros/noetic-devel/install_dependencis.sh | bash
+RUN wget -qO- https://raw.githubusercontent.com/luxonis/depthai-ros/noetic-devel/install_dependencies.sh | bash
 RUN mkdir -p /catkin_ws/src
 RUN cd /catkin_ws && wget https://raw.githubusercontent.com/luxonis/depthai-ros/noetic-devel/underlay.repos && vcs import src < underlay.repos
 RUN cd /catkin_ws && rosdep install --from-paths src --ignore-src -r -y
